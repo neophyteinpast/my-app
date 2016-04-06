@@ -1,18 +1,19 @@
 package com.alex.app;
 
-import java.io.*;
-import java.util.MissingResourceException;
+import org.apache.log4j.*;
+
+import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.logging.*;
+
 
 /**
  * Created by Alex on 12.03.2016.
  */
 public class GreetingApp {
 
-    private static final Logger LOGGER = Logger.getLogger(GreetingApp.class.getName());
+    final static Logger logger = Logger.getLogger(GreetingApp.class);
 
-    public static ResourceBundle bundle;
+    private static ResourceBundle bundle;
 
     DayTime morning = new DayTime(6, 0, 0);
     DayTime day = new DayTime(9, 0, 0);
@@ -20,66 +21,67 @@ public class GreetingApp {
     DayTime night = new DayTime(23, 0, 0);
     DayTime midnight = new DayTime(23, 59, 59);
     DayTime startNewDay = new DayTime(0, 0, 0);
-    static DayTime rightNow = new DayTime();
+    DayTime rightNow = new DayTime();
 
-    public static void main(String[] args) throws MissingResourceException, NullPointerException {
+    public static void main(String[] args) {
 
-        Handler fileHandler;
-        Formatter simpleFormatter;
 
-        try {
-            fileHandler = new FileHandler("./greetingApp.formatter.log");
-            simpleFormatter = new SimpleFormatter();
-            LOGGER.addHandler(fileHandler);
-            LOGGER.info("Finest message: Logger with DEFAULT FORMATTER");
-            fileHandler.setFormatter(simpleFormatter);
-            fileHandler.setLevel(Level.ALL);
-            LOGGER.setLevel(Level.ALL);
-            LOGGER.finest("Finest message: Logger with SIMPLE FORMATTER");
+        Locale locale = Locale.getDefault();
+
+        if (locale.getISO3Country().equals("RUS")) {
+            bundle = ResourceBundle.getBundle("i18n.MessageResource", new Utf8Control());
+            logger.info("The bundle is on language: " + locale.getDisplayLanguage());
         }
-        catch (FileNotFoundException e) {
-            LOGGER.log(Level.SEVERE, "File not found", e);
+        else {
+            bundle = ResourceBundle.getBundle("i18n.MessageResource", locale);
+            logger.info("The bundle is on language: " + locale.getDisplayLanguage());
         }
-        catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Error occur in FileHandler.", e);
-        }
-
-        bundle = ResourceBundle.getBundle("i18n.MessageResource", new UTF8Control());
 
         GreetingApp greetingApp = new GreetingApp();
         greetingApp.printMessage();
     }
 
     public String sayGreeting(DayTime now) {
+
+        logger.info("Entering the sayGreeting method");
+
         if (now.startTime.getTime().after(morning.startTime.getTime()) && now.startTime.getTime().before(day.startTime.getTime())) {
+            logger.info("The sayGreeting method returned the value \"morning\"");
             return "morning";
         }
 
         if (now.startTime.getTime().after(day.startTime.getTime()) && now.startTime.getTime().before(evening.startTime.getTime())) {
+            logger.info("The sayGreeting method returned the value \"day\"");
             return "day";
         }
 
         if (now.startTime.getTime().after(evening.startTime.getTime()) && now.startTime.getTime().before(night.startTime.getTime())) {
+            logger.info("The sayGreeting method returned the value \"evening\"");
             return "evening";
         }
 
         if ((now.startTime.getTime().after(night.startTime.getTime()) && now.startTime.getTime().before(midnight.startTime.getTime()))
             || (now.startTime.getTime().after(startNewDay.startTime.getTime()) && now.startTime.getTime().before(morning.startTime.getTime()))) {
+            logger.info("The sayGreeting method returned the value \"night\"");
             return "night";
         }
 
         else return null;
     }
 
-    String currentValue;
+    private String currentValue;
 
     public String generateMessage(ResourceBundle bundle, String keyValue) {
 
+        logger.info("Entering the generateMessage method");
         currentValue = bundle.getString(keyValue);
+        logger.info("The generateMessage returned the message " + "\"" + bundle.getString(keyValue) + "\"");
         return currentValue;
     }
 
     public void printMessage() {
+
+        logger.info("Entering the printMessage method");
         System.out.println(generateMessage(bundle, sayGreeting(rightNow)));
     }
 }

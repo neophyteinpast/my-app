@@ -9,7 +9,7 @@ public class DayTime {
 
     Calendar startTime;
 
-    public DayTime() {
+    DayTime() {
         this.startTime = Calendar.getInstance();
     }
 
