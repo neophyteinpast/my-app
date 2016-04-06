@@ -1,0 +1,9 @@
+
+2016-04-06 10:05:37 INFO  Utf8Control:31 - Bundle is converted successful to UTF-8
+2016-04-06 10:05:37 INFO  Utf8Control:31 - Bundle is converted successful to UTF-8
+2016-04-06 10:05:37 INFO  GreetingApp:33 - The bundle is on language: русский
+2016-04-06 10:05:37 INFO  GreetingApp:84 - Entering the printMessage method
+2016-04-06 10:05:37 INFO  GreetingApp:46 - Entering the sayGreeting method
+2016-04-06 10:05:37 INFO  GreetingApp:54 - The sayGreeting method returned the value "day"
+2016-04-06 10:05:37 INFO  GreetingApp:76 - Entering the generateMessage method
+2016-04-06 10:05:37 INFO  GreetingApp:78 - The generateMessage returned the message "Добрый день, Мир!"
