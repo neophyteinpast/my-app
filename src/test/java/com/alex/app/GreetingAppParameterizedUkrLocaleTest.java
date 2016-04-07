@@ -28,7 +28,7 @@ public class GreetingAppParameterizedUkrLocaleTest {
 
     @Parameterized.Parameters
     public static Collection<String[]> testConditions() {
-        String[][] expectedValues = {{"morning", "Доброе утро, Мир!"}, {"day", "Добрый день, Мир!"}, {"evening", "Добрый вечер, Мир!"}, {"night", "Доброй ночи, Мир!"}};
+        String[][] expectedValues = {{"morning", "Доброе утро, Мир!"}, {"day", "Доброго дня, Мир!"}, {"evening", "Добрый вечер, Мир!"}, {"night", "Доброй ночи, Мир!"}};
         return Arrays.asList(expectedValues);
     }
 
