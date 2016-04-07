@@ -102,4 +102,20 @@ public class GreetingAppGenerateMessageTest {
         String keyValues = "morning";
         assertEquals("Guten Morgen, Welt!", greetingApp.generateMessage(bundle, keyValues));
     }
+    
+    @Test
+    public void generateMessageDay_Locale_Ukraine() {
+
+        locale = new Locale("ru", "UA");
+
+        if (locale.getDisplayCountry().equals("Украина")) {
+            bundle = ResourceBundle.getBundle("i18n.MessageResource", locale);
+        }
+        else {
+            bundle = ResourceBundle.getBundle("i18n.MessageResource", locale);
+        }
+
+        String keyValues = "day";
+        assertEquals("Доброго дня, Мир!", greetingApp.generateMessage(bundle, keyValues));
+    }
 }
