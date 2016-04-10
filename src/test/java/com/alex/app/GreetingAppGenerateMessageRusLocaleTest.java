@@ -14,11 +14,13 @@ public class GreetingAppGenerateMessageRusLocaleTest {
     private static ResourceBundle bundle;
     private GreetingApp greetingApp;
     private static Locale locale;
+    private static Utf8Control utf8Control;
 
     @BeforeClass
     public static void beforeClass() {
 
       locale = new Locale("ru", "RU");
+      utf8Control = new Utf8Control();
     }
 
     @Before
@@ -26,7 +28,7 @@ public class GreetingAppGenerateMessageRusLocaleTest {
 
         greetingApp = new GreetingApp();
 
-        bundle = ResourceBundle.getBundle("i18n.MessageResource", locale);
+        bundle = ResourceBundle.getBundle("i18n.MessageResource", utf8Control);
     }
 
     //morning => Доброе утро, Мир!
