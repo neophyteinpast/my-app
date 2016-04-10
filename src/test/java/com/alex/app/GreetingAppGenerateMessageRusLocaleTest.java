@@ -26,7 +26,7 @@ public class GreetingAppGenerateMessageRusLocaleTest {
 
         greetingApp = new GreetingApp();
 
-        bundle = ResourceBundle.getBundle("i18n.MessageResource", new Utf8Control());
+        bundle = ResourceBundle.getBundle("i18n.MessageResource", locale);
     }
 
     //morning => Доброе утро, Мир!
