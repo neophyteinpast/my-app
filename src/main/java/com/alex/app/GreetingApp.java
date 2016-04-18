@@ -25,16 +25,10 @@ public class GreetingApp {
 
     public static void main(String[] args) {
 
+        Locale locale = new Locale("ru", "UA");
 
-        Locale locale = Locale.getDefault();
-
-        if (locale.getISO3Country().equals("RUS")) {
-            bundle = ResourceBundle.getBundle("i18n.MessageResource", new Utf8Control());
-            logger.info("The bundle is on language: " + locale.getDisplayLanguage());
-        }
-        else {
-            bundle = ResourceBundle.getBundle("i18n.MessageResource", locale);
-            logger.info("The bundle is on language: " + locale.getDisplayLanguage());
+        bundle = ResourceBundle.getBundle("i18n.MessageResource", new Utf8Control());
+        logger.info("The bundle is on language: " + locale.getDisplayLanguage());
         }
 
         GreetingApp greetingApp = new GreetingApp();
