@@ -13,6 +13,7 @@ public class GreetingApp {
 
     final static Logger logger = Logger.getLogger(GreetingApp.class);
 
+
     private static ResourceBundle bundle;
 
     DayTime morning = new DayTime(6, 0, 0);
@@ -27,9 +28,8 @@ public class GreetingApp {
 
         Locale locale = new Locale("ru", "UA");
 
-        bundle = ResourceBundle.getBundle("i18n.MessageResource", new Utf8Control());
+        bundle = ResourceBundle.getBundle("i18n.MessageResource", locale);
         logger.info("The bundle is on language: " + locale.getDisplayLanguage());
-        }
 
         GreetingApp greetingApp = new GreetingApp();
         greetingApp.printMessage();
