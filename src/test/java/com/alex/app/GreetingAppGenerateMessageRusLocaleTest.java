@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 
 import static org.junit.Assert.*;
 
-public class GreetingAppGenerateMessageUkrLocaleTest {
+public class GreetingAppGenerateMessageRusLocaleTest {
 
     private static ResourceBundle bundle;
     private GreetingApp greetingApp;
@@ -37,7 +37,7 @@ public class GreetingAppGenerateMessageUkrLocaleTest {
         assertEquals("Доброе утро, Мир!", greetingApp.generateMessage(bundle, keyValues));
     }
 
-    //day => Доброго дня, Мир!
+    //day => Добрый день, Мир!
     @Test
     public void generateMessageDay() {
 
