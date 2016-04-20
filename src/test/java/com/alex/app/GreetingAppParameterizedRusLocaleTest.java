@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class GreetingAppParameterizedUkrLocaleTest {
+public class GreetingAppParameterizedRusLocaleTest {
 
     static Locale locale;
     static ResourceBundle bundle;
@@ -21,7 +21,7 @@ public class GreetingAppParameterizedUkrLocaleTest {
     private String input;
     private String expectedOutput;
 
-    public GreetingAppParameterizedUkrLocaleTest(String input, String expectedOutput) {
+    public GreetingAppParameterizedRusLocaleTest(String input, String expectedOutput) {
         this.input = input;
         this.expectedOutput = expectedOutput;
     }
