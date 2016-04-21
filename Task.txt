@@ -14,4 +14,4 @@ Good night, World! в 23:00 - 06:00
 
 Выводящиеся на консоль сообщения должны быть получены из message resource и зависеть от системной локали пользователя. Сделать перевод на русский язык.	
 
-Код решения должен быть опубликован на GitHub’е без упоминания названия фирмы. В README должен присутствовать статус сборки от Travis CI (https://docs.travis-ci.com/user/status-images/) или Circle CI (https://circleci.com/docs/status-badges).
+Код решения должен быть опубликован на GitHub’е. В README должен присутствовать статус сборки от Travis CI (https://docs.travis-ci.com/user/status-images/) или Circle CI (https://circleci.com/docs/status-badges).
